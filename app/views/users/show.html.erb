@@ -7,3 +7,9 @@
 </h2>
 
 <%= render @events %>
+
+<% if @user == current_user %>
+<%# TODO separate past from upcoming events %>
+<h2>Events you are registered for</h2>
+<%= render current_user.attended_events %>
+<% end %>

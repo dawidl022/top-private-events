@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   root "events#index"
   resources :events
+  post 'event_attendances', to: 'event_attendances#create'
 end

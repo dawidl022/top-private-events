@@ -10,4 +10,7 @@
   <% end %>
 
   <%= render 'events/event_details', locals: { event: @event } %>
+
+  <%= link_to 'Register for this event',
+    event_attendances_path(event_id: @event.id), method: :post %>
 </div>
