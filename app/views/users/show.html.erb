@@ -1,0 +1,9 @@
+<h2>
+  <% if @user == current_user %>
+    Your events
+  <% else %>
+    Events created by <%= @user.name %> (<%= @user.username %>)
+  <% end %>
+</h2>
+
+<%= render @events %>
