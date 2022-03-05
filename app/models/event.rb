@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  validates_presence_of :name, :start_time, :location
+  validates_presence_of :name, :start_time, :end_time ,:location
 
   belongs_to :creator, class_name: "User"
   has_many :event_attendances

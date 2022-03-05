@@ -1,15 +1,38 @@
-<h2>
-  <% if @user == current_user %>
-    Your events
-  <% else %>
-    Events created by <%= @user.name %> (<%= @user.username %>)
-  <% end %>
-</h2>
+<section>
+  <h2>
+    <% if @user == current_user %>
+      Your events
+    <% else %>
+      Events created by <%= @user.name %> (<%= @user.username %>)
+    <% end %>
+  </h2>
 
-<%= render @events %>
+  <%= render 'shared/unless_empty', locals: { collection: @events } %>
+</section>
 
 <% if @user == current_user %>
-<%# TODO separate past from upcoming events %>
-<h2>Events you are registered for</h2>
-<%= render current_user.attended_events %>
+  <% upcoming_events =
+    current_user.attended_events.where('start_time > ?', Time.now) %>
+
+  <% ongoing_events =
+    current_user.attended_events.where('start_time < ?', Time.now)
+                 .where('end_time > ?', Time.now) %>
+
+  <% past_events =
+    current_user.attended_events.where('end_time < ?', Time.now) %>
+
+  <section>
+    <h2>Upcoming events you are registered for</h2>
+    <%= render 'shared/unless_empty', locals: { collection: upcoming_events } %>
+  </section>
+
+  <section>
+    <h2>Ongoing events you are registered for</h2>
+    <%= render 'shared/unless_empty', locals: { collection: ongoing_events } %>
+  </section>
+
+  <section>
+    <h2>Past events you have attended</h2>
+    <%= render 'shared/unless_empty', locals: { collection: past_events } %>
+  </section>
 <% end %>
