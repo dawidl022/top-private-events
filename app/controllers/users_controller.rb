@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       @user = current_user
     else
       flash[:warning] = "Please sign in to see your events"
-      redirect_to root_url
+      redirect_to new_user_session_url
     end
 
     @events = @user&.events
