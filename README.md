@@ -1,24 +1,14 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby on Rails course - The Odin Project
 
-Things you may want to cover:
+Project for practising building a Ruby on Rails application with multiple join tables and non-default named associations.
 
-* Ruby version
+<!-- TODO add link to Heroku when page is sufficiently styled -->
 
-* System dependencies
+[Project: Private Events](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/private-events)
+is part of [The Odin Project](https://www.theodinproject.com/) curriculum.
 
-* Configuration
+## About the Application
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<!-- TODO fill this in describing what the app does -->
