@@ -3,6 +3,15 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def show
+    @event = Event.find_by_id(params[:id])
+
+    unless @event
+      flash[:error] = "Event not found"
+      redirect_to root_url
+    end
+  end
+
   def new
     @event = Event.new
   end

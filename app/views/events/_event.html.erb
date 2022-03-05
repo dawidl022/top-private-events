@@ -1,18 +1,9 @@
 <article class="event-card">
-  <h3><%= event.name %></h3>
+  <h3><%= link_to event.name, event %></h3>
 
   <% if event.description %>
     <p><%= event.description[0, 120] %></p>
   <% end %>
 
-  <div class="dates">
-    <div><span class="label">Start time:</span> <%= event.start_time %></div>
-    <% if event.end_time %>
-      <div><span class="label">End time:</span> <%= event.end_time %></div>
-    <% end %>
-  </div>
-
-  <div class="location">
-    <span class="label">Location:</span> <%= event.location %>
-  </div>
+  <%= render 'events/event_details', locals: { event: event } %>
 </article>

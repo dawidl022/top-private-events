@@ -1,0 +1,12 @@
+<% event = locals[:event] %>
+
+<div class="dates">
+  <div><span class="label">Start time:</span> <%= event.start_time %></div>
+  <% if event.end_time %>
+    <div><span class="label">End time:</span> <%= event.end_time %></div>
+  <% end %>
+</div>
+
+<div class="location">
+  <span class="label">Location:</span> <%= event.location %>
+</div>

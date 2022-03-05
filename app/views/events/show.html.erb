@@ -1,0 +1,13 @@
+<div class="event-description">
+  <h2><%= @event.name %></h2>
+  <p>
+    Created by: <%= @event.creator.name %>
+    (<%= link_to @event.creator.username, @event.creator %>)
+  </p>
+
+  <% if @event.description %>
+    <p><%= @event.description %></p>
+  <% end %>
+
+  <%= render 'events/event_details', locals: { event: @event } %>
+</div>
