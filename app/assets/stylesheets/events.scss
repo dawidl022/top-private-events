@@ -1,0 +1,10 @@
+.event-card {
+  max-width: 400px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1rem;
+
+  .label {
+    font-weight: bold;
+  }
+}
