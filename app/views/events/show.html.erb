@@ -13,4 +13,17 @@
 
   <%= link_to 'Register for this event',
     event_attendances_path(event_id: @event.id), method: :post %>
+
+  <section>
+    <h3>
+      <%= pluralize(@event.attendees.count, "person") %>
+      registered for this event
+    </h3>
+
+    <ul>
+      <% @event.attendees.each do |attendee| %>
+        <li><%= link_to attendee.username, attendee %></li>
+      <% end %>
+    </ul>
+  </section>
 </div>
