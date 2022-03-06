@@ -11,12 +11,14 @@
 
   <%= render 'events/event_details', locals: { event: @event } %>
 
-  <% if current_user && current_user.attended_events.include?(@event) %>
-    <%= link_to "Unregister from this event",
-      event_attendances_path(event: @event), method: :delete %>
-  <% else %>
-    <%= link_to 'Register for this event',
-      event_attendances_path(event: @event), method: :post %>
+  <% if @event.end_time > Time.now %>
+    <% if current_user && current_user.attended_events.include?(@event) %>
+      <%= link_to "Unregister from this event",
+        event_attendances_path(event: @event), method: :delete %>
+    <% else %>
+      <%= link_to 'Register for this event',
+        event_attendances_path(event: @event), method: :post %>
+    <% end %>
   <% end %>
 
   <% if @event.creator == current_user %>
