@@ -11,8 +11,13 @@
 
   <%= render 'events/event_details', locals: { event: @event } %>
 
-  <%= link_to 'Register for this event',
-    event_attendances_path(event_id: @event.id), method: :post %>
+  <% if current_user && current_user.attended_events.include?(@event) %>
+    <%= link_to "Unregister from this event",
+      event_attendances_path(event: @event), method: :delete %>
+  <% else %>
+    <%= link_to 'Register for this event',
+      event_attendances_path(event: @event), method: :post %>
+  <% end %>
 
   <% if @event.creator == current_user %>
     <%= link_to 'Edit event', edit_event_path(@event) %>

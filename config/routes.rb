@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "events#index"
   resources :events
   post 'event_attendances', to: 'event_attendances#create'
+  delete 'event_attendances', to: 'event_attendances#destroy'
 end
