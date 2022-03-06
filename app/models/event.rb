@@ -25,4 +25,8 @@ class Event < ApplicationRecord
   scope :past, -> do
     where('end_time < ?', Time.now)
   end
+
+  scope :visible, -> do
+    where('private = ?', false)
+  end
 end

@@ -1,9 +1,10 @@
 <section>
   <h2>
     <% if @user == current_user %>
-      Your events
+      <h2>Your events</h2>
     <% else %>
       Events created by <%= @user.name %> (<%= @user.username %>)
+      <% @events = @events.visible %>
     <% end %>
   </h2>
 

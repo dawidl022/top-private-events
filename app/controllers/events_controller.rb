@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :require_ownership, only: [:edit, :update, :destroy]
 
   def index
-    @events = Event
+    @events = Event.visible
     @filter = event_filter || :all
   end
 
@@ -77,7 +77,7 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:name, :description, :start_time, :end_time,
-                                    :location)
+                                    :location, :private)
     end
 
     def event_filter
