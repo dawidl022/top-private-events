@@ -1,2 +1,8 @@
-<h2>All events</h2>
-<%= render @events %>
+<h2><%= @filter.capitalize %> events</h2>
+<ul>
+  <li><%= link_to 'All events', events_path %></li>
+  <li><%= link_to 'Upcoming events', events_path(filter: :upcoming) %></li>
+  <li><%= link_to 'Ongoing events', events_path(filter: :ongoing) %></li>
+  <li><%= link_to 'Past events', events_path(filter: :past) %></li>
+</ul>
+<%= render @events.send(@filter) %>

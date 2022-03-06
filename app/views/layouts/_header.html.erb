@@ -3,6 +3,7 @@
   <nav>
     <ul>
       <% if user_signed_in? %>
+        <li><%= link_to 'Create Event', new_event_path %></li>
         <li><%= link_to 'My Events', my_events_path %></li>
         <li>
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

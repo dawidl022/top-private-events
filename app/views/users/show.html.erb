@@ -12,14 +12,13 @@
 
 <% if @user == current_user %>
   <% upcoming_events =
-    current_user.attended_events.where('start_time > ?', Time.now) %>
+    current_user.attended_events.upcoming %>
 
   <% ongoing_events =
-    current_user.attended_events.where('start_time < ?', Time.now)
-                 .where('end_time > ?', Time.now) %>
+    current_user.attended_events.ongoing %>
 
   <% past_events =
-    current_user.attended_events.where('end_time < ?', Time.now) %>
+    current_user.attended_events.past %>
 
   <section>
     <h2>Upcoming events you are registered for</h2>

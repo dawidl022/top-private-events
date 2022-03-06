@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event
+    @filter = event_filter || :all
   end
 
   def show
@@ -37,5 +38,11 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :description, :start_time, :end_time,
                                     :location)
+    end
+
+    def event_filter
+      if params[:filter] && Event.send(:valid_scope_name?, params[:filter])
+        params[:filter]
+      end
     end
 end
