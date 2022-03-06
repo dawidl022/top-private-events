@@ -5,4 +5,4 @@
   <li><%= link_to 'Ongoing events', events_path(filter: :ongoing) %></li>
   <li><%= link_to 'Past events', events_path(filter: :past) %></li>
 </ul>
-<%= render @events.send(@filter) %>
+<%= render 'shared/unless_empty', locals: { collection: @events.send(@filter) } %>

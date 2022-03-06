@@ -14,6 +14,12 @@
   <%= link_to 'Register for this event',
     event_attendances_path(event_id: @event.id), method: :post %>
 
+  <% if @event.creator == current_user %>
+    <%= link_to 'Edit event', edit_event_path(@event) %>
+    <%= link_to 'Delete event', @event, method: :delete, style: "color: red;",
+      data: { confirm: "Are you sure?" } %>
+  <% end %>
+
   <section>
     <h3>
       <%= pluralize(@event.attendees.count, "person") %>
