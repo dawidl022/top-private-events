@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_06_125625) do
+ActiveRecord::Schema.define(version: 2022_03_06_132959) do
 
   create_table "event_attendances", force: :cascade do |t|
     t.integer "event_id", null: false
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 2022_03_06_125625) do
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
+  create_table "invitations", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "inviter_id", null: false
+    t.integer "invitee_id", null: false
+    t.text "message"
+    t.boolean "accepted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["invitee_id"], name: "index_invitations_on_invitee_id"
+    t.index ["inviter_id"], name: "index_invitations_on_inviter_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "name"
@@ -52,4 +65,7 @@ ActiveRecord::Schema.define(version: 2022_03_06_125625) do
   add_foreign_key "event_attendances", "events"
   add_foreign_key "event_attendances", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "creator_id"
+  add_foreign_key "invitations", "events"
+  add_foreign_key "invitations", "users", column: "invitee_id"
+  add_foreign_key "invitations", "users", column: "inviter_id"
 end

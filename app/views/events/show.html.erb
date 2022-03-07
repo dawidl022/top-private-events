@@ -25,6 +25,11 @@
     <%= link_to 'Edit event', edit_event_path(@event) %>
     <%= link_to 'Delete event', @event, method: :delete, style: "color: red;",
       data: { confirm: "Are you sure?" } %>
+
+    <section class="invitations">
+      <%# TODO keep working here %>
+      <%= form_with url: user_search_url %>
+    </section>
   <% end %>
 
   <section>

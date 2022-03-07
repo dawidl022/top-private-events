@@ -1,0 +1,16 @@
+<div class="invitation-card card">
+  <h3><%= link_to invitation.event.name, invitation.event %></h3>
+  <div class="info">
+    Invited by: <%= invitation.inviter.name %>
+    (<%= invitation.inviter.username %>)
+  </div>
+  <% if invitation.message %>
+    <div class="message">
+      <%= invitation.message %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= link_to 'Accept', invitation_path(accepted: true) %>
+    <%= link_to 'Decline', invitation_path(accepted: false) %>
+  </div>
+</div>

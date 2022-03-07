@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :event_attendances, foreign_key: :attendee_id
   has_many :attended_events, source: :event,
            class_name: "Event", through: :event_attendances
+  has_many :invitations, foreign_key: :invitee_id
 end

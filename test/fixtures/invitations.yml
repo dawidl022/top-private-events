@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  inviter: one
+  invitee: one
+  message: MyText
+  accepted: false
+
+two:
+  event: two
+  inviter: two
+  invitee: two
+  message: MyText
+  accepted: false
